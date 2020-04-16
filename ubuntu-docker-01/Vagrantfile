@@ -19,7 +19,6 @@ Vagrant.configure("2") do |config|
       stable"
     sudo apt-get update
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-    sudo usermod -aG docker ${USER} 
-    sudo chmod 666 /var/run/docker.sock
+    sudo usermod -aG docker vagrant
   SHELL
 end
