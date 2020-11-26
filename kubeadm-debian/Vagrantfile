@@ -1,7 +1,8 @@
-vagrant_name = "k8s-singlenode-debian"
+vagrant_name = "kubeadm-debian"
 Vagrant.configure("2") do |config|
   config.vm.box = "debian/buster64"
   config.vm.hostname = vagrant_name
+  config.vm.define = vagrant_name
   config.vm.provider "virtualbox" do |vb|
     vb.name = vagrant_name
     vb.memory = 2048

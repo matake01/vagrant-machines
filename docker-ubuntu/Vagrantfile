@@ -1,7 +1,12 @@
+vagrant_name = "docker-ubuntu"
 Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu1804"
-  config.vm.provider :hyperv do |hyperv|
-    hyperv.vmname = "DockerUbuntu"
+  config.vm.define = vagrant_name
+  config.vm.hostname = vagrant_name
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = vagrant_name
+    vb.memory = 2048
+    vb.cpus = 2
   end
   config.vm.network "public_network", bridge: "Internet"
   config.vm.provision "shell", inline: <<-SHELL
